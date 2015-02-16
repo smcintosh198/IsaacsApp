@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, isaacsActivity!</string>
+    <string name="app_name">Isaac\'s</string>
+    <string name="app_name_extended">Isaac\'s Famous Grilled Sandwiches</string>
+    <string name="version">v1.0</string>
+    <string name="main_online_ordering">Online Ordering</string>
+    <string name="menu_item_rate_this_app">Rate this App</string>
+    <string name="menu_item_About_this_app">About this App</string>
+    <string name="menu_item_Settings">Settings</string>
+ 
+    
+    <string name="AboutThisAppMsg">This App produced by Dr. Roger Webster. If you like this app please rate it 5 stars. To Rate the App press Menu-&gt;Rate This App.</string>
+    <string name="APP_PREFERENCES">AppPreferences</string><string name="main_locations">Locations</string>
+    
+    
+    
+    
+    
+    
+
+</resources>

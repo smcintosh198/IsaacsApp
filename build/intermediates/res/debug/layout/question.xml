@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/TextViewQ"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="What Celtic"
+        android:textSize="20px"
+        android:textStyle="bold"
+        android:typeface="serif" >
+    </TextView>
+
+    <RadioGroup
+        android:id="@+id/RadioGroup1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RadioButton
+            android:id="@+id/RadioButton01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@+id/RadioButton01" >
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/RadioButton02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@+id/RadioButton02" >
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/RadioButton03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@+id/RadioButton03" >
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/RadioButton04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@+id/RadioButton04" >
+        </RadioButton>
+    </RadioGroup>
+
+</LinearLayout><!-- From: file:/H:/workspace/BaseAppCodeCS419/res/layout/question.xml -->
