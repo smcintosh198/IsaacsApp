@@ -4,49 +4,208 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/TextViewQ"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="What Celtic"
-        android:textSize="20px"
-        android:textStyle="bold"
-        android:typeface="serif" >
-    </TextView>
+        android:layout_margin="3dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="Your Question:"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+        <EditText
+            android:id="@+id/add_a_question_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19dp"
+            android:textSize="12dp"
+            android:typeface="serif"/>
+    </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/RadioGroup1"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_margin="3dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="Your Choice1:"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:typeface="serif" >
+        </TextView>
+        <EditText
+            android:id="@+id/add_a_question_choice1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="27dp"
+            android:textSize="12dp"
+            android:typeface="serif"/>
+    </LinearLayout>
 
-        <RadioButton
-            android:id="@+id/RadioButton01"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="Your Choice2:"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+        <EditText
+            android:id="@+id/add_a_question_choice2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
+            android:typeface="serif"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="Your Choice3:"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+        <EditText
+            android:id="@+id/add_a_question_choice3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
+            android:textSize="12dp"
+            android:typeface="serif" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="Your Choice4:"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+        <EditText
+            android:id="@+id/add_a_question_choice4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
+            android:textSize="12dp"
+            android:typeface="serif"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_margin="3dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="Correct Answer:"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:typeface="serif" >
+        </TextView>
+        <Spinner
+            android:id="@+id/add_a_question_correctAns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="Comments:"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+        <EditText
+            android:id="@+id/add_a_question_comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:textSize="12dp"
+            android:typeface="serif"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="Your Name:"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+        <EditText
+            android:id="@+id/add_a_question_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="37dp"
+            android:textSize="12dp"
+            android:typeface="serif" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:orientation="horizontal">
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@+id/RadioButton01" >
-        </RadioButton>
-
-        <RadioButton
-            android:id="@+id/RadioButton02"
-            android:layout_width="wrap_content"
+            android:background="@drawable/back"
+            android:onClick="goBackClick"/>
+        <Button
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@+id/RadioButton02" >
-        </RadioButton>
-
-        <RadioButton
-            android:id="@+id/RadioButton03"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@+id/RadioButton03" >
-        </RadioButton>
-
-        <RadioButton
-            android:id="@+id/RadioButton04"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@+id/RadioButton04" >
-        </RadioButton>
-    </RadioGroup>
+            android:layout_marginLeft="150dp"
+            android:background="@drawable/submit"
+            android:onClick="submitClick"/>
+        </LinearLayout>
 
 </LinearLayout>

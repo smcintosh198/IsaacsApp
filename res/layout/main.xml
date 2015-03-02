@@ -19,4 +19,25 @@
       
     </LinearLayout>
 
+    <Button android:id="@+id/Facebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="fbOnClick"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="65dp"
+        android:background="@drawable/facebook"/>
+
+    <Button android:id="@+id/AddaQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="AddqOnClick"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="75dp"/>
+        <!--android:background="@drawable/AddaQuestion"-->
+
+    />
+
+
 </RelativeLayout>
