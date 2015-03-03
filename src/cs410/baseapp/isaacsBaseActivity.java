@@ -36,10 +36,13 @@ public class isaacsBaseActivity extends Activity {
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// setContentView(R.layout.locationmain);
-		String s = (String) getResources()
+		//setContentView(R.layout.main);
+		String s = getResources()
 				.getString(R.string.app_name_extended);
 		this.setTitle(s);
+
+        Button addQuestion = (Button) findViewById(R.id.facebook);
+
 	}
 
 

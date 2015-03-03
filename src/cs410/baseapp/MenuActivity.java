@@ -2,31 +2,82 @@ package cs410.baseapp;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-public class MenuActivity extends isaacsBaseActivity {
+public class MenuActivity extends Activity {
+
+    Button playGameButton;
+    Button addQuestionButton;
+    Button aboutAppButton;
+    Button quitButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.menu);
+
+        initGui();
     }
 
-    public void createAboutThisApp() {
+    private void initGui(){
+
+        playGameButton = (Button) findViewById(R.id.playGameButton);
+        playGameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), PlayGameActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+        addQuestionButton = (Button) findViewById(R.id.addQuestionButton);
+        addQuestionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), AddaQuestionActivity.class);
+                startActivity(i);
+            }
+        });
+
+        aboutAppButton = (Button) findViewById(R.id.aboutThisAppButton);
+        aboutAppButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAboutThisAppDialog();
+            }
+        });
+
+        quitButton = (Button) findViewById(R.id.quitButton);
+        quitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
+
+
+    public void createAboutThisAppDialog() {
         AlertDialog.Builder adb;
         LinearLayout linear = new LinearLayout(this);
         linear.setOrientation(LinearLayout.VERTICAL);
         // linear.setBackgroundColor(getResources().getColor(R.color.Blue));
         adb = new AlertDialog.Builder(this);
-        String s = (String) getResources().getString(R.string.app_name);
+        String s = getResources().getString(R.string.app_name);
         adb.setTitle(s);
         TextView mytext = new TextView(this);
         mytext.append("This app written by: ");
+        mytext.append("Shayne McIntosh, with framework written by -> ");
         mytext.append("Dr. Roger Webster\n");
         mytext.append("Have fun and enjoy!!!\n");
         linear.addView(mytext);

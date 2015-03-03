@@ -136,7 +136,7 @@
             android:typeface="serif" >
         </TextView>
         <Spinner
-            android:id="@+id/add_a_question_correctAns"
+            android:id="@+id/add_a_question_correctAnsSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="80dp"
@@ -196,11 +196,13 @@
         android:layout_margin="3dp"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/back"
-            android:onClick="goBackClick"/>
+            android:onClick="backClick"/>
         <Button
+            android:id="@+id/submitButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="150dp"
