@@ -23,7 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class isaacsBaseActivity extends Activity {
+public class BlaugranaBaseActivity extends Activity {
 	// ----------------------------------------------------------------
 	// this is the Base Activity for the entire app
 	// these variables are used throughout the entire app
@@ -32,15 +32,33 @@ public class isaacsBaseActivity extends Activity {
 	// ----------------------------------------------------------------
 	public static SharedPreferences.Editor prefEditor;
 	public static SharedPreferences settings;
-	
 
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		// setContentView(R.layout.locationmain);
-		String s = (String) getResources()
-				.getString(R.string.app_name_extended);
-		this.setTitle(s);
-	}
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // setContentView(R.layout.locationmain);
+        String s = (String) getResources()
+                .getString(R.string.app_name_extended);
+        this.setTitle(s);
+    }
+
+    public void createAboutThisAppDialog() {
+        AlertDialog.Builder adb;
+        LinearLayout linear = new LinearLayout(this);
+        linear.setOrientation(LinearLayout.VERTICAL);
+        // linear.setBackgroundColor(getResources().getColor(R.color.Blue));
+        adb = new AlertDialog.Builder(this);
+        String s = getResources().getString(R.string.app_name);
+        adb.setTitle(s);
+        TextView mytext = new TextView(this);
+        mytext.append("This app written by: ");
+        mytext.append("Shayne McIntosh, with framework written by -> ");
+        mytext.append("Dr. Roger Webster\n");
+        mytext.append("Have fun and enjoy!!!\n");
+        linear.addView(mytext);
+        adb.setView(linear);
+        adb.setPositiveButton("Ok", null);
+        adb.show();
+    }
 
 
 	public void createDialog(String msg) {

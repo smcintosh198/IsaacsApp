@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, isaacsActivity!</string>
+    <string name="app_name">Blaugrana Trivia</string>
+    <string name="app_name_extended">Trivia for the Blaugrana</string>
+    <string name="version">v1.0</string>
+    <string name="main_online_ordering">Online Ordering</string>
+    <string name="menu_item_play_game">- Play Game -</string>
+    <string name="menu_item_add_a_question">- Add A Question -</string>
+    <string name="menu_item_rate_this_app">- Rate this App -</string>
+    <string name="menu_item_About_this_app">- About this App -</string>
+    <string name="menu_item_quit">- Quit -</string>
+    <string name="menu_item_Settings">Settings</string>
+    <string name="AboutThisAppMsg">This App produced by Dr. Roger Webster. If you like this app please rate it 5 stars. To Rate the App press Menu->Rate This App.</string>
+    <string name="APP_PREFERENCES">AppPreferences</string>
+    <string name="main_locations">Locations</string>
+    <string name="title_activity_adda_question">AddaQuestionActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_play_game">PlayGameActivity</string>
+
+</resources>

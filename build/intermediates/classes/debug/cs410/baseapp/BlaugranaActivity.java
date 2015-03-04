@@ -1,48 +1,34 @@
 package cs410.baseapp;
 
-import cs410.baseapp.R;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
-import android.text.method.PasswordTransformationMethod;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnKeyListener;
 import android.view.ViewParent;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-public class isaacsActivity extends isaacsBaseActivity {
+public class BlaugranaActivity extends BlaugranaBaseActivity {
 	// --------------------------------------------------------------------------
 	// this is the Main Activity for the app
-	// this activity extends isaacsBaseActivity which loads the xml store info
+	// this activity extends MenuBaseActivity which loads the xml store info
 	// this puts up the main menu of actions for the user
 	// Originally written by Dr. Roger Webster
 	// --------------------------------------------------------------------------
-
+    Button playGameButton;
+    Button addQuestionButton;
+    Button aboutAppButton;
+    Button quitButton;
 	Context mContext = this;
+
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.menu);
 
 		View titleView = getWindow().findViewById(android.R.id.title);
 		if (titleView != null) {
@@ -58,8 +44,49 @@ public class isaacsActivity extends isaacsBaseActivity {
 
 		setTitle(title);
 
+        initGui();
+
 	
 	}
+
+    private void initGui(){
+
+        playGameButton = (Button) findViewById(R.id.playGameButton);
+        playGameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), PlayGameActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+        addQuestionButton = (Button) findViewById(R.id.addQuestionButton);
+        addQuestionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), AddaQuestionActivity.class);
+                startActivity(i);
+            }
+        });
+
+        aboutAppButton = (Button) findViewById(R.id.aboutThisAppButton);
+        aboutAppButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAboutThisAppDialog();
+            }
+        });
+
+        quitButton = (Button) findViewById(R.id.quitButton);
+        quitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                System.exit(0);
+            }
+        });
+    }
 
 	public void onUserLeaveHint() {
 		// System.exit(0);
