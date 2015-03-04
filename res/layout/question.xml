@@ -1,213 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrolleraddq"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:fillViewport="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginLeft="5dp"
-            android:text="Your Question:"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            android:typeface="serif" />
-        <EditText
-            android:id="@+id/add_a_question_question"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="19dp"
-            android:textSize="12dp"
-            android:typeface="serif"/>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginLeft="5dp"
-            android:text="Your Choice1:"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            android:typeface="serif" >
-        </TextView>
-        <EditText
-            android:id="@+id/add_a_question_choice1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginLeft="27dp"
-            android:textSize="12dp"
-            android:typeface="serif"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginLeft="5dp"
-            android:text="Your Choice2:"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            android:typeface="serif" />
-        <EditText
-            android:id="@+id/add_a_question_choice2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="27dp"
-            android:typeface="serif"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginLeft="5dp"
-            android:text="Your Choice3:"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            android:typeface="serif" />
-        <EditText
-            android:id="@+id/add_a_question_choice3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="27dp"
-            android:textSize="12dp"
-            android:typeface="serif" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginLeft="5dp"
-            android:text="Your Choice4:"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            android:typeface="serif" />
-        <EditText
-            android:id="@+id/add_a_question_choice4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="27dp"
-            android:textSize="12dp"
-            android:typeface="serif"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_margin="3dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginLeft="5dp"
-            android:text="Correct Answer:"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            android:typeface="serif" >
-        </TextView>
-        <Spinner
-            android:id="@+id/add_a_question_correctAnsSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginLeft="5dp"
-            android:text="Comments:"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            android:typeface="serif" />
-        <EditText
-            android:id="@+id/add_a_question_comments"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:textSize="12dp"
-            android:typeface="serif"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginLeft="5dp"
-            android:text="Your Name:"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            android:typeface="serif" />
-        <EditText
-            android:id="@+id/add_a_question_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="37dp"
-            android:textSize="12dp"
-            android:typeface="serif" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/back"
-            android:onClick="backClick"/>
-        <Button
-            android:id="@+id/submitButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
-            android:background="@drawable/submit"
-            android:onClick="submitClick"/>
+    <LinearLayout style="@style/vertical_fill_light">
+        <LinearLayout style="@style/row">
+            <TextView
+                style="@style/label"
+                android:text="Your Question:" />
+            <EditText
+                android:id="@+id/addQuestionQuestion"
+                style="@style/field"
+                android:inputType="textMultiLine"
+                android:text="Question"
+                android:maxLength="90" />
         </LinearLayout>
 
-</LinearLayout>
+        <LinearLayout style="@style/row">
+            <TextView
+                style="@style/label"
+                android:text="Your Choice1:"
+                 >
+            </TextView>
+            <EditText
+                android:id="@+id/addQuestionAnswer1"
+                style="@style/field"
+                android:inputType="textMultiLine"
+                android:maxLength="30"
+                android:hint="Answer 1"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/row">
+            <TextView
+                style="@style/label"
+                android:text="Your Choice2:" />
+            <EditText
+                android:id="@+id/addQuestionAnswer2"
+                style="@style/field"
+                android:inputType="textMultiLine"
+                android:maxLength="30"
+                android:hint="Answer 2"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/row">
+            <TextView
+                style="@style/label"
+                android:text="Your Choice3:" />
+            <EditText
+                android:id="@+id/addQuestionAnswer3"
+                style="@style/field"
+                android:inputType="textMultiLine"
+                android:maxLength="30"
+                android:hint="Answer 3"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/row">
+            <TextView
+                style="@style/label"
+                android:text="Your Choice4:" />
+            <EditText
+                android:id="@+id/addQuestionAnswer4"
+                style="@style/field"
+                android:inputType="textMultiLine"
+                android:maxLength="30"
+                android:hint="Answer 4"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/row">
+            <TextView
+                style="@style/label"
+                android:text="Correct Answer:" />
+            <Spinner
+                android:id="@+id/addQuestionAnswerSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout style="@style/row">
+            <TextView
+                style="@style/label"
+                android:text="Comments:"/>
+            <EditText
+                android:id="@+id/addQuestionComment"
+                style="@style/field"
+                android:inputType="textMultiLine"
+                android:maxLength="30"
+                android:hint="Comment"/>
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/row">
+            <TextView
+                style="@style/label"
+                android:text="Your Name:" />
+            <EditText
+                android:id="@+id/addQuestionName"
+                style="@style/field"
+                android:inputType="textMultiLine"
+                android:maxLength="30"
+                android:hint="Name"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/row">
+            <Button
+                android:id="@+id/addQuestionBackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back"
+                android:onClick="backClick"/>
+            <Button
+                android:id="@+id/addQuestionSubmitButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:background="@drawable/submit"
+                android:onClick="submitClick"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

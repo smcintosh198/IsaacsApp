@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<drawable name="button_text_default">#FF333333</drawable>
+	<drawable name="button_text_disabled">#FF999999</drawable>
+	<drawable name="button_text_focused">#FF333333</drawable>
+	<drawable name="button_text_pressed">#FF333333</drawable>
+	<drawable name="button_text_white_default">#FFFFFFFF</drawable>
+	<drawable name="divider_dark">#4C000000</drawable>
+	<drawable name="divider_light">#26FFFFFF</drawable>
+	<drawable name="link_color">#FF0033CC</drawable>
+	<drawable name="list_pressed_color">#FF800000</drawable>
+	<drawable name="list_selected_color">#FF333333</drawable>
+	<drawable name="list_unfocused_color">#33000000</drawable>
+	<drawable name="list_unselected_color">#33000000</drawable>
+	<drawable name="menu_row_divider_color">#FF379FC4</drawable>
+	<drawable name="orange">#FFFF7800</drawable>
+	<drawable name="screen_title_color">#FFFFFFFF</drawable>
+	<drawable name="surrounded">#FFF3F3F3</drawable>
+	<drawable name="tab_text_disabled">#00999999</drawable>
+	<drawable name="tab_text_enabled">#FFFFFFFF</drawable>
+	<drawable name="tab_text_shadow_disabled">#00000000</drawable>
+	<drawable name="tab_text_shadow_enabled">#80000000</drawable>
+	<drawable name="tab_view_background">#00019EE2</drawable>
+	<drawable name="vertical_divider_dark">#20000000</drawable>
+	<drawable name="vertical_divider_light">#FF47AEF6</drawable>
+	
+    <color
+        name="logo_color">#FFFF0F</color>
+    <color
+        name="version_color">#f0f0f0</color>
+    <color
+        name="version_bkgrd">#1a1a48</color>
+    <color
+        name="title_color">#f0f0f0</color>
+    <color
+        name="title_glow">#F00</color>
+    <color
+        name="menu_color">#FFFF0F</color>
+    <color
+        name="menu_glow">#F00</color>
+    <color name="Green">#007942</color>
+    <color name="Blue">#3300CC</color>
+    <color name="Red">#FF003B</color>
+    <color name="White">#FFFFFF</color>
+    <color name="LiteBlue">#87CEFA</color>
+    <color name="Black">#000000</color>
+    
+	
+</resources>

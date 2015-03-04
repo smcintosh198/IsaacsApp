@@ -1,6 +1,5 @@
 package cs410.baseapp;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 
-public class AddaQuestionActivity extends Activity {
+public class AddaQuestionActivity extends BlaugranaActivity {
     public final int SPINNER_SIZE = 4;
 
     EditText question;
@@ -37,65 +36,123 @@ public class AddaQuestionActivity extends Activity {
     Button backButton;
     Button submitButton;
 
+    Context mContext = this;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.question);
         initGui();
-        initSpinner();
-
-
 
     }
 
     private void initGui(){
-        question = (EditText) findViewById(R.id.add_a_question_question);
-        answer1Text = (EditText) findViewById(R.id.add_a_question_choice1);
-        answer2Text = (EditText) findViewById(R.id.add_a_question_choice2);
-        answer3Text = (EditText) findViewById(R.id.add_a_question_choice3);
-        answer4Text = (EditText) findViewById(R.id.add_a_question_choice4);
-        nameText = (EditText) findViewById(R.id.add_a_question_name);
-        commentText = (EditText) findViewById(R.id.add_a_question_name);
+        question = (EditText) findViewById(R.id.addQuestionQuestion);
+        answer1Text = (EditText) findViewById(R.id.addQuestionAnswer1);
+        answer2Text = (EditText) findViewById(R.id.addQuestionAnswer2);
+        answer3Text = (EditText) findViewById(R.id.addQuestionAnswer3);
+        answer4Text = (EditText) findViewById(R.id.addQuestionAnswer4);
+        nameText = (EditText) findViewById(R.id.addQuestionName);
+        commentText = (EditText) findViewById(R.id.addQuestionName);
 
-        spin = (Spinner)  findViewById(R.id.add_a_question_correctAnsSpinner);
-        answers[0] =  answer1Text.toString();
-        answers[1] =  answer2Text.toString();
-        answers[2] =  answer3Text.toString();
-        answers[3] =  answer4Text.toString();
+        spin = (Spinner)  findViewById(R.id.addQuestionAnswerSpinner);
+        answers[0] =  answer1Text.getText().toString();
+        answers[1] =  answer2Text.getText().toString();
+        answers[2] =  answer3Text.getText().toString();
+        answers[3] =  answer4Text.getText().toString();
+        initSpinner();
 
-        backButton = (Button) findViewById(R.id.backButton);
+        backButton = (Button) findViewById(R.id.addQuestionBackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            finish();
+            }
+        });
 
-        submitButton = (Button) findViewById(R.id.submitButton);
+        submitButton = (Button) findViewById(R.id.addQuestionSubmitButton);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // submitQuestionDialog();
+                sendEmail();
+            }
+        });
     }
+    /*
+    private void submitQuestionDialog(){
+        AlertDialog.Builder adb;
+        LinearLayout linear = new LinearLayout(this);
+        linear.setOrientation(LinearLayout.VERTICAL);
+        // linear.setBackgroundColor(getResources().getColor(R.color.Blue));
+        adb = new AlertDialog.Builder(this);
+        String s = getResources().getString(R.string.app_name);
+        adb.setTitle(s);
+        TextView mytext = new TextView(this);
+        mytext.append(question.getText());
+        createRadioButton(linear);
+        submit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                for(int i = 0; i < 5; i++) {
+                    rg.removeView(rb[i]);//now the RadioButtons are in the RadioGroup
+                }
+                ll.removeView(submit);
+                Questions();
+            }
+        });
+
+
+        linear.addView(mytext);
+        adb.setView(linear);
+        adb.setPositiveButton("Ok", null);
+        adb.show();
+
+        LayoutInflater inflater = getLayoutInflater();
+        View dialoglayout = inflater.inflate(R.layout.question_submit, null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialoglayout);
+        builder.show();
+
+        AlertDialog.Builder adb;
+        LinearLayout linear = new LinearLayout(this);
+        linear.setOrientation(LinearLayout.VERTICAL);
+        adb = new AlertDialog.Builder(this);
+        String s = (String) getResources().getString(R.string.app_name);
+        adb.setTitle(s);
+        TextView mytext = new TextView(this);
+        mytext.append(msg);
+        linear.addView(mytext);
+        adb.setView(linear);
+        adb.setPositiveButton("Ok", null);
+        adb.show();
+    }
+
+    private void createRadioButton(LinearLayout ll) {
+        final RadioButton[] rb = new RadioButton[5];
+        RadioGroup rg = new RadioGroup(this); //create the RadioGroup
+        rg.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL
+        for(int i=0; i<5; i++){
+            rb[i]  = new RadioButton(this);
+            rg.addView(rb[i]); //the RadioButtons are added to the radioGroup instead of the layout
+            rb[i].setText(answers[i]);
+        }
+        ll.addView(rg);//you add the whole RadioGroup to the layout
+        ll.addView(submit);
+
+    }
+    */
 
     private void initSpinner(){
         // Throw object around or create String array?
         // Application of the Array to the Spinner
+
 
         final ArrayAdapter<String> answersArray_adapter;
         answersArray_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, answers);
         answersArray_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
 
         spin.setAdapter(answersArray_adapter);
-        spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                int index = adapterView.getSelectedItemPosition();
-
-                correctAnswer = answers[index];
-
-                //System.out.println(CorrectAnswer);
-
-                //Toast.makeText(getBaseContext(), "Your Answer is - "+CorrectAnswer,Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
 
         answersArray_adapter.notifyDataSetChanged();
-
         answer1Text.addTextChangedListener(new TextWatcher() {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
@@ -138,12 +195,30 @@ public class AddaQuestionActivity extends Activity {
         answer4Text.addTextChangedListener(new TextWatcher() {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                answers[3] = s.toString();
+
                 answersArray_adapter.notifyDataSetChanged();
+                answers[3] = s.toString();
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
             public void afterTextChanged(Editable s) {
+            }
+        });
+
+        spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                int index = adapterView.getSelectedItemPosition();
+
+                correctAnswer = answers[index];
+
+                //System.out.println(CorrectAnswer);
+
+                //Toast.makeText(getBaseContext(), "Your Answer is - "+CorrectAnswer,Toast.LENGTH_LONG).show();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
     }
@@ -200,6 +275,7 @@ public class AddaQuestionActivity extends Activity {
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, "Please pick your preferred email application"));
     }
+
     public void createDialogQuestion() {
 
         LinearLayout linear = new LinearLayout(this);

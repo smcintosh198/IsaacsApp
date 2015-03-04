@@ -8,11 +8,14 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <android:uses-permission
+    <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission
+    <uses-permission
+        android:name="android.permission.READ_PHONE_STATE"
+        android:maxSdkVersion="18"
+        />
+    <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
 
@@ -22,7 +25,7 @@
         <uses-library android:name="com.google.android.maps" />
 
         <activity
-            android:name=".isaacsActivity"
+            android:name=".BlaugranaActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -32,16 +35,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".isaacsBaseActivity"
+            android:name=".BlaugranaBaseActivity"
             android:label="@string/app_name_extended" >
         </activity>
         <activity
             android:name=".AddaQuestionActivity"
             android:label="@string/title_activity_adda_question" >
-        </activity>
-        <activity
-            android:name=".MenuActivity"
-            android:label="@string/title_activity_menu" >
         </activity>
         <activity
             android:name=".PlayGameActivity"

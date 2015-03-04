@@ -14,11 +14,13 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/gameBackButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/back" />
 
         <Button
+            android:id="@+id/gameRateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -31,44 +33,48 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/TextViewQ"
+            android:id="@+id/gameQuestion"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:text="Question"
-            android:textSize="20px"
+            android:textSize="@dimen/question_size"
             android:textStyle="bold"
             android:typeface="serif" />
 
         <RadioGroup
-            android:id="@+id/RadioGroup1"
+            android:id="@+id/gameRadioGroup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <RadioButton
-                android:id="@+id/RadioButton01"
+                android:id="@+id/gameRadioAnswer1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@+id/RadioButton01" />
+                android:text="@+id/RadioButton01"
+                android:textSize="@dimen/answer_size"/>
 
             <RadioButton
-                android:id="@+id/RadioButton02"
+                android:id="@+id/gameRadioAnswer2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@+id/RadioButton02" />
+                android:text="@+id/RadioButton02"
+                android:textSize="@dimen/answer_size"/>
 
             <RadioButton
-                android:id="@+id/RadioButton03"
+                android:id="@+id/gameRadioAnswer3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@+id/RadioButton03" />
+                android:text="@+id/RadioButton03"
+                android:textSize="@dimen/answer_size"/>
 
             <RadioButton
-                android:id="@+id/RadioButton04"
+                android:id="@+id/gameRadioAnswer4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@+id/RadioButton04" />
+                android:text="@+id/RadioButton04"
+                android:textSize="@dimen/answer_size"/>
         </RadioGroup>
     </LinearLayout>
     <LinearLayout
@@ -77,11 +83,13 @@
         android:orientation="vertical"
         android:layout_marginTop="325dp">
         <Button
+            android:id="@+id/gameCheckAnswerButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:background="@drawable/checkyouranswer2"/>
         <Button
+            android:id="@+id/gameRandomizeButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
