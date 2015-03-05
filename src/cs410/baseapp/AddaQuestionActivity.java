@@ -2,6 +2,7 @@ package cs410.baseapp;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -15,7 +16,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 public class AddaQuestionActivity extends BlaugranaActivity {
@@ -36,7 +40,16 @@ public class AddaQuestionActivity extends BlaugranaActivity {
     Button backButton;
     Button submitButton;
 
+    TextView adbQuestion;
+    RadioGroup rg;
+    RadioButton adbRadioButton1;
+    RadioButton adbRadioButton2;
+    RadioButton adbRadioButton3;
+    RadioButton adbRadioButton4;
+
+
     Context mContext = this;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +58,7 @@ public class AddaQuestionActivity extends BlaugranaActivity {
 
     }
 
-    private void initGui(){
+    private void initGui() {
         question = (EditText) findViewById(R.id.addQuestionQuestion);
         answer1Text = (EditText) findViewById(R.id.addQuestionAnswer1);
         answer2Text = (EditText) findViewById(R.id.addQuestionAnswer2);
@@ -54,18 +67,18 @@ public class AddaQuestionActivity extends BlaugranaActivity {
         nameText = (EditText) findViewById(R.id.addQuestionName);
         commentText = (EditText) findViewById(R.id.addQuestionName);
 
-        spin = (Spinner)  findViewById(R.id.addQuestionAnswerSpinner);
-        answers[0] =  answer1Text.getText().toString();
-        answers[1] =  answer2Text.getText().toString();
-        answers[2] =  answer3Text.getText().toString();
-        answers[3] =  answer4Text.getText().toString();
+        spin = (Spinner) findViewById(R.id.addQuestionAnswerSpinner);
+        answers[0] = answer1Text.getText().toString();
+        answers[1] = answer2Text.getText().toString();
+        answers[2] = answer3Text.getText().toString();
+        answers[3] = answer4Text.getText().toString();
         initSpinner();
 
         backButton = (Button) findViewById(R.id.addQuestionBackButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            finish();
+                finish();
             }
         });
 
@@ -73,75 +86,14 @@ public class AddaQuestionActivity extends BlaugranaActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // submitQuestionDialog();
-                sendEmail();
+
+                submitQuestionDialog();
+
             }
         });
     }
-    /*
-    private void submitQuestionDialog(){
-        AlertDialog.Builder adb;
-        LinearLayout linear = new LinearLayout(this);
-        linear.setOrientation(LinearLayout.VERTICAL);
-        // linear.setBackgroundColor(getResources().getColor(R.color.Blue));
-        adb = new AlertDialog.Builder(this);
-        String s = getResources().getString(R.string.app_name);
-        adb.setTitle(s);
-        TextView mytext = new TextView(this);
-        mytext.append(question.getText());
-        createRadioButton(linear);
-        submit.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                for(int i = 0; i < 5; i++) {
-                    rg.removeView(rb[i]);//now the RadioButtons are in the RadioGroup
-                }
-                ll.removeView(submit);
-                Questions();
-            }
-        });
 
-
-        linear.addView(mytext);
-        adb.setView(linear);
-        adb.setPositiveButton("Ok", null);
-        adb.show();
-
-        LayoutInflater inflater = getLayoutInflater();
-        View dialoglayout = inflater.inflate(R.layout.question_submit, null);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setView(dialoglayout);
-        builder.show();
-
-        AlertDialog.Builder adb;
-        LinearLayout linear = new LinearLayout(this);
-        linear.setOrientation(LinearLayout.VERTICAL);
-        adb = new AlertDialog.Builder(this);
-        String s = (String) getResources().getString(R.string.app_name);
-        adb.setTitle(s);
-        TextView mytext = new TextView(this);
-        mytext.append(msg);
-        linear.addView(mytext);
-        adb.setView(linear);
-        adb.setPositiveButton("Ok", null);
-        adb.show();
-    }
-
-    private void createRadioButton(LinearLayout ll) {
-        final RadioButton[] rb = new RadioButton[5];
-        RadioGroup rg = new RadioGroup(this); //create the RadioGroup
-        rg.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL
-        for(int i=0; i<5; i++){
-            rb[i]  = new RadioButton(this);
-            rg.addView(rb[i]); //the RadioButtons are added to the radioGroup instead of the layout
-            rb[i].setText(answers[i]);
-        }
-        ll.addView(rg);//you add the whole RadioGroup to the layout
-        ll.addView(submit);
-
-    }
-    */
-
-    private void initSpinner(){
+    private void initSpinner() {
         // Throw object around or create String array?
         // Application of the Array to the Spinner
 
@@ -154,28 +106,30 @@ public class AddaQuestionActivity extends BlaugranaActivity {
 
         answersArray_adapter.notifyDataSetChanged();
         answer1Text.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) {
+            }
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 answers[0] = s.toString();
                 answersArray_adapter.notifyDataSetChanged();
             }
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-            public void afterTextChanged(Editable s) {
-            }
-
-
         });
 
         answer2Text.addTextChangedListener(new TextWatcher() {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            public void afterTextChanged(Editable s) {
+            }
+
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 answers[1] = s.toString();
                 answersArray_adapter.notifyDataSetChanged();
-            }
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-            public void afterTextChanged(Editable s) {
             }
 
         });
@@ -186,8 +140,10 @@ public class AddaQuestionActivity extends BlaugranaActivity {
                 answers[2] = s.toString();
                 answersArray_adapter.notifyDataSetChanged();
             }
+
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             public void afterTextChanged(Editable s) {
             }
         });
@@ -195,12 +151,14 @@ public class AddaQuestionActivity extends BlaugranaActivity {
         answer4Text.addTextChangedListener(new TextWatcher() {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-
-                answersArray_adapter.notifyDataSetChanged();
                 answers[3] = s.toString();
+                answersArray_adapter.notifyDataSetChanged();
+
             }
+
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             public void afterTextChanged(Editable s) {
             }
         });
@@ -216,6 +174,7 @@ public class AddaQuestionActivity extends BlaugranaActivity {
 
                 //Toast.makeText(getBaseContext(), "Your Answer is - "+CorrectAnswer,Toast.LENGTH_LONG).show();
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -223,6 +182,93 @@ public class AddaQuestionActivity extends BlaugranaActivity {
         });
     }
 
+    private void submitQuestionDialog() {
+
+        LinearLayout linear = new LinearLayout(this);
+        linear.setOrientation(LinearLayout.VERTICAL);
+        String s = "\nPlease make sure the correct answer is \n selected below, then press Send Q Button";
+        //String s = getResources().getString(R.string.app_name);
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        LayoutInflater mInflater = (LayoutInflater) this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = mInflater.inflate(R.layout.question_submit, linear);
+
+        adbQuestion = (TextView) v.findViewById(R.id.adbQuestion);
+        adbQuestion.setText(question.getText().toString());
+
+        rg = (RadioGroup) v.findViewById(R.id.adbRadioGroup);
+        adbRadioButton1 = (RadioButton) v.findViewById(R.id.adbRadioButton1);
+        adbRadioButton1.setText(answers[0]);
+        final int RB1 = adbRadioButton1.getId();
+        adbRadioButton2 = (RadioButton) v.findViewById(R.id.adbRadioButton2);
+        adbRadioButton2.setText(answers[1]);
+        final int RB2 = adbRadioButton2.getId();
+        adbRadioButton3 = (RadioButton) v.findViewById(R.id.adbRadioButton3);
+        adbRadioButton3.setText(answers[2]);
+        final int RB3 = adbRadioButton3.getId();
+        adbRadioButton4 = (RadioButton) v.findViewById(R.id.adbRadioButton4);
+        adbRadioButton4.setText(answers[3]);
+        final int RB4 = adbRadioButton4.getId();
+
+        adb.setView(v);
+        adb.setTitle(s);
+        adb.setCancelable(true);
+        AlertDialog.Builder submit = adb.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                int selectedIndex = rg.getCheckedRadioButtonId();
+                if (selectedIndex == RB1) {
+                    selectedIndex = 0;
+                    correctAnswer = answers[selectedIndex];
+                    sendEmail();
+                } else if (selectedIndex == RB2) {
+                    selectedIndex = 1;
+                    correctAnswer = answers[selectedIndex];
+                    sendEmail();
+                } else if (selectedIndex == RB3) {
+                    selectedIndex = 2;
+                    correctAnswer = answers[selectedIndex];
+                    sendEmail();
+                } else if (selectedIndex == RB4) {
+                    selectedIndex = 3;
+                    correctAnswer = answers[selectedIndex];
+                    sendEmail();
+                }
+            }
+        });
+        adb.show();
+
+    }
+
+    /**
+     * Method to send email
+     */
+    protected void sendEmail() {
+        // Setup the recipient in a String array
+        String[] mailto = {"s.mcintosh198@gmail.com"};
+        // Create a new Intent to send messages
+        Intent sendIntent = new Intent(Intent.ACTION_SEND);
+        // Add attributes to the intent
+        sendIntent.putExtra(Intent.EXTRA_EMAIL, mailto);
+        // sendIntent.putExtra(Intent.EXTRA_CC, ccto);
+        String s = (String) getResources().getString(R.string.app_name);
+
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Barcelona Trivia Game App Create Your Own question");
+        String msg = "<item> \n" + "<question>"
+                + question.getText().toString() + "</question> " + "\n"
+                + "<answer1>" + answer1Text.getText().toString() + "</answer1>"
+                + "\n" + "<answer2>" + answer2Text.getText().toString()
+                + "</answer2>" + "\n" + "<answer3>"
+                + answer3Text.getText().toString() + "</answer3>" + "\n"
+                + "<answer4>" + answer4Text.getText().toString() + "</answer4>"
+                + "\n" + "<correctanswer>" + correctAnswer + "</correctanswer>"
+                + "\n" + "<comment>" + "Sent in by: name. " + nameText.getText().toString() + "</comment>" + "</item> \n"
+                + "\n" + s;
+        sendIntent.putExtra(Intent.EXTRA_TEXT, msg);
+        sendIntent.setType("message/rfc822");
+        sendIntent.setType("text/plain");
+        startActivity(Intent.createChooser(sendIntent, "Please pick your preferred email application"));
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -244,48 +290,5 @@ public class AddaQuestionActivity extends BlaugranaActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * Method to send email
-     */
-    protected void sendEmail() {
-        // Setup the recipient in a String array
-        String[] mailto = {"sdmcinto1@millersville.edu"};
-        // Create a new Intent to send messages
-        Intent sendIntent = new Intent(Intent.ACTION_SEND);
-        // Add attributes to the intent
-        sendIntent.putExtra(Intent.EXTRA_EMAIL, mailto);
-        // sendIntent.putExtra(Intent.EXTRA_CC, ccto);
-        String s = (String) getResources().getString(R.string.app_name);
-
-        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Barcelona Trivia Game App Create Your Own question");
-        String msg = "<item> \n" + "<question>"
-                + question.getText().toString() + "</question> " + "\n"
-                + "<answer1>" + answer1Text.getText().toString() + "</answer1>"
-                + "\n" + "<answer2>" + answer2Text.getText().toString()
-                + "</answer2>" + "\n" + "<answer3>"
-                + answer3Text.getText().toString() + "</answer3>" + "\n"
-                + "<answer4>" + answer4Text.getText().toString() + "</answer4>"
-                + "\n" + "<correctanswer>" + correctAnswer + "</correctanswer>"
-                + "\n" + "<comment>" + "Sent in by: name. " + commentText.getText().toString() + "</comment>" + "</item> \n"
-                + "\n" + s;
-        sendIntent.putExtra(Intent.EXTRA_TEXT, msg);
-        sendIntent.setType("message/rfc822");
-        sendIntent.setType("text/plain");
-        startActivity(Intent.createChooser(sendIntent, "Please pick your preferred email application"));
-    }
-
-    public void createDialogQuestion() {
-
-        LinearLayout linear = new LinearLayout(this);
-        linear.setOrientation(LinearLayout.VERTICAL);
-        String s = "\nPlease make sure the correct answer is selected below, then press Send Q Button";
-        AlertDialog.Builder adb = new AlertDialog.Builder(this);
-        adb.setTitle("My Patriots Trivia question");
-        adb.setView(linear);
-        LayoutInflater mInflater = (LayoutInflater) this
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View VolumeView = mInflater.inflate(R.layout.question, linear);
     }
 }

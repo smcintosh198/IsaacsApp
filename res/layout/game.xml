@@ -1,11 +1,11 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1"
+    android:background="@color/Black"
+    android:orientation="vertical"
+    android:weightSum="1"
     tools:context="cs410.baseapp.PlayGameActivity">
 
     <RelativeLayout
@@ -13,87 +13,119 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <ImageButton
             android:id="@+id/gameBackButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/back" />
+            android:background="@null"
+            android:src="@drawable/back" />
 
-        <Button
+        <ImageButton
             android:id="@+id/gameRateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:background="@drawable/rate5"/>
+            android:layout_alignParentTop="true"
+            android:layout_gravity="right"
+            android:background="@null"
+            android:onClick="onRateButtonClick"
+            android:src="@drawable/rate5" />
+
     </RelativeLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <View
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical">
+        android:layout_height="1dp"
+        android:background="@android:color/white" />
 
-        <TextView
-            android:id="@+id/gameQuestion"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:text="Question"
-            android:textSize="@dimen/question_size"
-            android:textStyle="bold"
-            android:typeface="serif" />
-
-        <RadioGroup
-            android:id="@+id/gameRadioGroup"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/gameRadioAnswer1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@+id/RadioButton01"
-                android:textSize="@dimen/answer_size"/>
-
-            <RadioButton
-                android:id="@+id/gameRadioAnswer2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@+id/RadioButton02"
-                android:textSize="@dimen/answer_size"/>
-
-            <RadioButton
-                android:id="@+id/gameRadioAnswer3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@+id/RadioButton03"
-                android:textSize="@dimen/answer_size"/>
-
-            <RadioButton
-                android:id="@+id/gameRadioAnswer4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@+id/RadioButton04"
-                android:textSize="@dimen/answer_size"/>
-        </RadioGroup>
-    </LinearLayout>
-    <LinearLayout
+    <TextView
+        android:id="@+id/Counter"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="325dp">
-        <Button
-            android:id="@+id/gameCheckAnswerButton"
+        android:gravity="center"
+        android:text="Good Luck!"
+        android:textSize="35px"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/white" />
+
+    <TextView
+        android:id="@+id/TextViewQ"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello!"
+        android:textSize="46px"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+    <RadioGroup
+        android:id="@+id/gameRadioGroup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/gameRadioAnswer1"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:background="@drawable/checkyouranswer2"/>
-        <Button
-            android:id="@+id/gameRandomizeButton"
+            android:layout_height="wrap_content"
+            android:text="@+id/RadioButton01"
+            android:textSize="@dimen/answer_size" />
+
+        <RadioButton
+            android:id="@+id/gameRadioAnswer2"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/randomizeqs"/>
-        </LinearLayout>
-</RelativeLayout>
+            android:layout_height="wrap_content"
+            android:text="@+id/RadioButton02"
+            android:textSize="@dimen/answer_size" />
+
+        <RadioButton
+            android:id="@+id/gameRadioAnswer3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@+id/RadioButton03"
+            android:textSize="@dimen/answer_size" />
+
+        <RadioButton
+            android:id="@+id/gameRadioAnswer4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@+id/RadioButton04"
+            android:textSize="@dimen/answer_size" />
+    </RadioGroup>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/white"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.13" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gameCheckAnswerButton"
+        android:src="@drawable/checkyouranswer2"
+        android:background="@null"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onSubmitClick" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gameRandomizeButton"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/randomizeqs"
+        android:onClick="randomizeOnClick" />
+
+</LinearLayout>

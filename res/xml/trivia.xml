@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <question>How?</question>
+        <answer1>Hello1</answer1>
+        <answer2>Hello2</answer2>
+        <answer3>Hello3</answer3>
+        <answer4>Hello4</answer4>
+        <correctanswer>android.widget.Spinner@41b0ac00</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+    <item>
+        <question>How2?</question>
+        <answer1>Hello145</answer1>
+        <answer2>Hello2</answer2>
+        <answer3>Hello3</answer3>
+        <answer4>Hello4</answer4>
+        <correctanswer>android.widget.Spinner@41b0ac00</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+    <item>
+        <question>How3?</question>
+        <answer1>Hello1</answer1>
+        <answer2>Hello2</answer2>
+        <answer3>Hello33465</answer3>
+        <answer4>Hello4</answer4>
+        <correctanswer>android.widget.Spinner@41b0ac00</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+</PreferenceScreen>
