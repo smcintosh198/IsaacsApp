@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
@@ -59,22 +60,6 @@ public class BlaugranaBaseActivity extends Activity {
         adb.setPositiveButton("Ok", null);
         adb.show();
     }
-
-
-	public void createDialog(String msg) {
-		AlertDialog.Builder adb;
-		LinearLayout linear = new LinearLayout(this);
-		linear.setOrientation(LinearLayout.VERTICAL);
-		adb = new AlertDialog.Builder(this);
-		String s = (String) getResources().getString(R.string.app_name);
-		adb.setTitle(s);
-		TextView mytext = new TextView(this);
-		mytext.append(msg);
-		linear.addView(mytext);
-		adb.setView(linear);
-		adb.setPositiveButton("Ok", null);
-		adb.show();
-	}
 
 	public void showRateDialog(final Context mContext) {
 
@@ -163,6 +148,27 @@ public class BlaugranaBaseActivity extends Activity {
 		adb.setPositiveButton("Ok", null);
 		adb.show();
 	}
+    public void DialogDeletePreferences(){
+        AlertDialog.Builder adb;
+        LinearLayout linear = new LinearLayout(this);
+        linear.setOrientation(LinearLayout.VERTICAL);
+        adb = new AlertDialog.Builder(this);
+        String s = (String) getResources().getString(R.string.app_name);
+        adb.setTitle(s);
+        TextView mytext = new TextView(this);
+        String msg = "Are you sure you would like to delete your answering data?";
+        mytext.append(msg);
+        linear.addView(mytext);
+        adb.setView(linear);
+        adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                prefEditor.clear();
+                prefEditor.commit();
+            }
+        });
+        adb.show();
+    }
 
 	
 	

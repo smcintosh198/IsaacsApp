@@ -1,32 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-        <question>How?</question>
-        <answer1>Hello1</answer1>
-        <answer2>Hello2</answer2>
-        <answer3>Hello3</answer3>
-        <answer4>Hello4</answer4>
-        <correctanswer>android.widget.Spinner@41b0ac00</correctanswer>
+        <question>Who is the current manager of the Blaugrana?</question>
+        <answer1>Tito Martino</answer1>
+        <answer2>Pep Gaurdiola</answer2>
+        <answer3>Jose Mourinho</answer3>
+        <answer4>Luis Enrique</answer4>
+        <correctanswer>Luis Enrique</correctanswer>
         <comment>Sent in by: name. Hello</comment>
     </item>
 
     <item>
-        <question>How2?</question>
-        <answer1>Hello145</answer1>
-        <answer2>Hello2</answer2>
-        <answer3>Hello3</answer3>
-        <answer4>Hello4</answer4>
-        <correctanswer>android.widget.Spinner@41b0ac00</correctanswer>
+        <question>What colors does FC Barcelona wear at home?</question>
+        <answer1>Black and Gold</answer1>
+        <answer2>White and Maroon</answer2>
+        <answer3>Blue and Maroon</answer3>
+        <answer4>Violet and Yellow</answer4>
+        <correctanswer>Blue and Maroon</correctanswer>
         <comment>Sent in by: name. Hello</comment>
     </item>
 
     <item>
-        <question>How3?</question>
-        <answer1>Hello1</answer1>
-        <answer2>Hello2</answer2>
-        <answer3>Hello33465</answer3>
-        <answer4>Hello4</answer4>
-        <correctanswer>android.widget.Spinner@41b0ac00</correctanswer>
+        <question>Who wears number 10 for Barca'?</question>
+        <answer1>Pedro</answer1>
+        <answer2>Luis Suarez</answer2>
+        <answer3>Neymar</answer3>
+        <answer4>Lionel Messi</answer4>
+        <correctanswer>Lionel Messi</correctanswer>
         <comment>Sent in by: name. Hello</comment>
     </item>
+
+    <item>
+        <question>What Barcelona player now plays for the New York Red Bulls?</question>
+        <answer1>Thierry Henry</answer1>
+        <answer2>Robbie Keane</answer2>
+        <answer3>Samuel Eto'o</answer3>
+        <answer4>Kyle Beckerman</answer4>
+        <correctanswer>Thierry Henry</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+    <item>
+        <question>What is the name of Barca's home stadium?</question>
+        <answer1>Santiago Bernabeu</answer1>
+        <answer2>The Mestella</answer2>
+        <answer3>Camp Nou</answer3>
+        <answer4>Stamford Bridge</answer4>
+        <correctanswer>Camp Nou</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+
+    <item>
+        <question>Which team did Barcelona by Ronaldinho from?</question>
+        <answer1>AC Milan</answer1>
+        <answer2>Brazil</answer2>
+        <answer3>PSG</answer3>
+        <answer4>Flamengo</answer4>
+        <correctanswer>PSG</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+    <item>
+        <question>Who sponsors Barcelona's kit?</question>
+        <answer1>Umbro</answer1>
+        <answer2>Adidas</answer2>
+        <answer3>Reebok</answer3>
+        <answer4>Nike</answer4>
+        <correctanswer>Nike</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+    <item>
+        <question>What charity sponsors FC Barcelona?</question>
+        <answer1>Goal</answer1>
+        <answer2>Unicef</answer2>
+        <answer3>Trocaire</answer3>
+        <answer4>Save the Children</answer4>
+        <correctanswer>Unicef</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+    <item>
+        <question>Which country was Lionel Messi born in?</question>
+        <answer1>Argentina</answer1>
+        <answer2>Chile</answer2>
+        <answer3>Spain</answer3>
+        <answer4>Brazil</answer4>
+        <correctanswer>Argentina</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+
+    <item>
+        <question>What non-recognized country does Barcelona reside in?</question>
+        <answer1>Hong Kong</answer1>
+        <answer2>Catalonia</answer2>
+        <answer3>Spain</answer3>
+        <answer4>Madrid</answer4>
+        <correctanswer>Catalonia</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+
+    <item>
+        <question>What is the capacity of Camp Nou?</question>
+        <answer1>95,000</answer1>
+        <answer2>100,000</answer2>
+        <answer3>120,000</answer3>
+        <answer4>80,000</answer4>
+        <correctanswer>100,000</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+
+    <item>
+        <question>In what traditional competition does Barcelona face off against Real Madrid?</question>
+        <answer1>El Classico</answer1>
+        <answer2>Copa Del Ray</answer2>
+        <answer3>Champions League</answer3>
+        <answer4>La Traditionale</answer4>
+        <correctanswer>El Classico</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+
+    <item>
+        <question>In what years were the Blaugrana managed by Johan Cruyff?</question>
+        <answer1>1970-1972</answer1>
+        <answer2>1920-1925</answer2>
+        <answer3>1963-1974</answer3>
+        <answer4>1973-1978</answer4>
+        <correctanswer>1973-1978</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+    <item>
+        <question>What is the official anthem of Barcelona?</question>
+        <answer1>Cant del Barca</answer1>
+        <answer2>Cant del Blaugrana</answer2>
+        <answer3>Cant del Copa</answer3>
+        <answer4>Cant del CLassico</answer4>
+        <correctanswer>Cant del Barca</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+    <item>
+        <question>How many La Liga titles has Barcelona won?</question>
+        <answer1>10</answer1>
+        <answer2>16</answer2>
+        <answer3>12</answer3>
+        <answer4>22</answer4>
+        <correctanswer>22</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+
+    <item>
+        <question>In what year was Barcelona founded?</question>
+        <answer1>1832</answer1>
+        <answer2>1799</answer2>
+        <answer3>1910</answer3>
+        <answer4>1899</answer4>
+        <correctanswer>1899</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+
+    <item>
+        <question>What is the nick-name for the style of play introduced by Pep Guardiola?</question>
+        <answer1>Tiki-Taka</answer1>
+        <answer2>Tiki-Teka</answer2>
+        <answer3>Taka-Tiki</answer3>
+        <answer4>Teka-Tiki</answer4>
+        <correctanswer>Tiki-Taka</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+
+    <item>
+        <question>In December of 2014, the Court of Arbitration for Sport banned Barcelona from what?</question>
+        <answer1>Transfers</answer1>
+        <answer2>Copa del Rey Play</answer2>
+        <answer3>Champions League Bids</answer3>
+        <answer4>Youth purchases</answer4>
+        <correctanswer>Transfers</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+    <item>
+        <question>Which team fullfills the El derbi Barceloni?</question>
+        <answer1>Real Madrid</answer1>
+        <answer2>Atletico Madrid</answer2>
+        <answer3>Espanyol</answer3>
+        <answer4>Zaragoza</answer4>
+        <correctanswer>Espanyol</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
+    <item>
+        <question>Who is the oldest captain of Barcelona currently playing?</question>
+        <answer1>Messi</answer1>
+        <answer2>Pique</answer2>
+        <answer3>Xavi</answer3>
+        <answer4>Iniesta</answer4>
+        <correctanswer>Xavi</correctanswer>
+        <comment>Sent in by: name. Hello</comment>
+    </item>
+
 </PreferenceScreen>

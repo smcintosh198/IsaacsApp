@@ -1,5 +1,6 @@
 package cs410.baseapp;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -24,27 +26,30 @@ public class PlayGameActivity extends BlaugranaActivity {
 
     private static final String GAME_PREFERENCES = null;
     private static final int MAX_QUESTIONS = 20;
+
+    private Question[] Questions = new Question[MAX_QUESTIONS];
+    int setQuestionIndex = 0;
+
     TextView question;
+    TextView counter;
 
     ImageButton backButton;
     ImageButton rateButton;
     ImageButton checkAnswerButton;
-    ImageButton randomizeButton;
 
+    ImageButton randomizeButton;
     RadioGroup answersRadioGroup;
     RadioButton answer1;
     RadioButton answer2;
     RadioButton answer3;
     RadioButton answer4;
 
-    boolean haveSDcard = false;
-
-    private int totalNumCorrect;
-    private int totalNumIncorrect;
-    private int questionIndex;
-    private int lastQuestionIndex;
-    private int totalNumQuestions;
-    private Question[] Questions = new Question[MAX_QUESTIONS];
+    private int numQuestions = 0;
+    private int numCorrect = 0;
+    private int numIncorrect = 0;
+    private int totalAnswered = 0;
+    private int questionIndex = 0;
+    private int lastQuestionIndex = 0;
 
     final Context mContext = this;
 
@@ -57,10 +62,35 @@ public class PlayGameActivity extends BlaugranaActivity {
     }
 
     private void initGui() {
-        question = (TextView) findViewById(R.id.gameQuestion);
+        question = (TextView) findViewById(R.id.gameQuestions);
+        counter = (TextView) findViewById(R.id.Counter);
+        initCounterView();
+
         initButtons();
         initRadioButtons();
+
+        try{
+            getQuestionsfromXML();
+        } catch (Exception e){
+
+        }
+        questionIndex = lastQuestionIndex;
+        initQuestion();
     }
+
+    private void initCounterView(){
+        if (totalAnswered != 0){
+            counter.setText("Correctly answered: " + numCorrect + "/" + totalAnswered + " = " + calcRatio()  + "%");
+        } else {
+            counter.setText("Good Luck!");
+        }
+    }
+
+    private float calcRatio(){
+        float ratio = ((float)numCorrect/totalAnswered) * 100;
+        return ratio;
+    }
+
     private void initButtons(){
         backButton = (ImageButton) findViewById(R.id.gameBackButton);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +112,22 @@ public class PlayGameActivity extends BlaugranaActivity {
         checkAnswerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                if (getSelectedRadioButton() == null){
+                    CharSequence text = "Please select an answer!";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(mContext, text, duration);
+                    toast.show();
+                } else if (Questions[questionIndex].CorrectAnswer == getSelectedRadioButton()){
+                    String correctMsg = "You got it!\n" + Questions[questionIndex].CorrectAnswer + " is the correct answer!";
+                    createDialog(correctMsg);
+                    numCorrect++;
+                    nextQuestion();
+                } else {
+                    String wrongMsg = "Sorry, that is incorrect. You answered \n" + getSelectedRadioButton() + ". \nWe maintain the answer as: " + Questions[questionIndex].CorrectAnswer;
+                    createDialog(wrongMsg);
+                    numIncorrect++;
+                    nextQuestion();
+                }
             }
         });
 
@@ -91,13 +136,29 @@ public class PlayGameActivity extends BlaugranaActivity {
             @Override
             public void onClick(View view) {
                 Random randomIndex = new Random();
-                int randomQuestionIndex = randomIndex.nextInt(MAX_QUESTIONS - 1) + 1;
-                question = Questions[randomQuestionIndex].Question;
+                questionIndex = randomIndex.nextInt(MAX_QUESTIONS - 0);
+                initQuestion();
+                lastQuestionIndex = questionIndex;
+                saveAppPreferences();
             }
         });
 
     }
 
+    private void nextQuestion (){
+        answersRadioGroup.clearCheck();
+        totalAnswered++;
+        if (questionIndex == Questions.length - 1){
+            questionIndex = 0;
+            lastQuestionIndex = questionIndex;
+        } else {
+            questionIndex++;
+            lastQuestionIndex = questionIndex;
+        }
+        saveAppPreferences();
+        initCounterView();
+        initQuestion();
+    }
     private void initRadioButtons(){
         answersRadioGroup = (RadioGroup) findViewById(R.id.gameRadioGroup);
         answer1 = (RadioButton) findViewById(R.id.gameRadioAnswer1);
@@ -107,39 +168,90 @@ public class PlayGameActivity extends BlaugranaActivity {
 
     }
 
+    private void initQuestion(){
+        question.setText(Questions[questionIndex].getQuestion());
+        answer1.setText(Questions[questionIndex].getAnswer1());
+        answer2.setText(Questions[questionIndex].getAnswer2());
+        answer3.setText(Questions[questionIndex].getAnswer3());
+        answer4.setText(Questions[questionIndex].getAnswer4());
+    }
+
+    private String getSelectedRadioButton(){
+        final int RB1 = answer1.getId();
+        final int RB2 = answer2.getId();
+        final int RB3 = answer3.getId();
+        final int RB4 = answer4.getId();
+
+        int selectedIndex = answersRadioGroup.getCheckedRadioButtonId();
+        if (selectedIndex == RB1) {
+            return answer1.getText().toString();
+        } else if (selectedIndex == RB2) {
+            return answer2.getText().toString();
+        } else if (selectedIndex == RB3) {
+            return answer3.getText().toString();
+        } else if (selectedIndex == RB4) {
+            return answer4.getText().toString();
+        } else {
+            return null;
+        }
+    }
+
     public void getAppPreferences() {
         settings = getSharedPreferences(GAME_PREFERENCES, MODE_PRIVATE);
         prefEditor = settings.edit();
         prefEditor.putString("UserName", "Shayne McIntosh");
-        if (settings.contains("NumCorrect")) {
-            totalNumCorrect = settings.getInt("NumCorrect", totalNumCorrect);
+        if (settings.contains("NumQuestions")) {
+            numCorrect = settings.getInt("NumQuestions", numQuestions);
         } else {
-            prefEditor.putInt("NumCorrect", totalNumCorrect);
+            prefEditor.putInt("NumQuestions", numQuestions);
+            prefEditor.commit();
+        }
+        if (settings.contains("NumCorrect")) {
+            numCorrect = settings.getInt("NumCorrect", numCorrect);
+        } else {
+            prefEditor.putInt("NumCorrect", numCorrect);
             prefEditor.commit();
         }
         if (settings.contains("NumInCorrect")) {
-            totalNumIncorrect = settings.getInt("NumInCorrect",
-                    totalNumIncorrect);
+            numIncorrect = settings.getInt("NumInCorrect",
+                    numIncorrect);
         } else {
-            prefEditor.putInt("NumInCorrect", totalNumIncorrect);
+            prefEditor.putInt("NumInCorrect", numIncorrect);
             prefEditor.commit();
         }
-        if (settings.contains("Qno")) {
-            lastQuestionIndex = settings.getInt("Qno", lastQuestionIndex);
+        if (settings.contains("TotalAnswered")) {
+            totalAnswered = settings.getInt("TotalAnswered",
+                    totalAnswered);
         } else {
-            prefEditor.putInt("Qno", 0);
+            prefEditor.putInt("TotalAnswered", totalAnswered);
             prefEditor.commit();
         }
-        // prefEditor.putInt("Qno", 0);
-        // myLastQsindex=0;
-        // prefEditor.commit();
+        if (settings.contains("lastQuestion")) {
+            lastQuestionIndex = settings.getInt("lastQuestion", lastQuestionIndex);
+        } else {
+            prefEditor.putInt("lastQuestion", 0);
+            prefEditor.commit();
+        }
+    }
+
+    public void saveAppPreferences(){
+        settings = getSharedPreferences(GAME_PREFERENCES, MODE_PRIVATE);
+        prefEditor = settings.edit();
+
+        prefEditor.putInt("NumQuestions", numQuestions);
+        prefEditor.putInt("TotalAnswered", totalAnswered);
+        prefEditor.putInt("NumCorrect", numCorrect);
+        prefEditor.putInt("NumInCorrect", numIncorrect);
+        prefEditor.putInt("lastQuestion", lastQuestionIndex);
+        prefEditor.commit();
+
     }
 
     public void getQuestionsfromXML() throws XmlPullParserException,
             IOException {
         String tagname = " ";
         XmlResourceParser xpp = getResources().getXml(R.xml.trivia);
-
+        xpp.next();
         if (xpp == null) {
 
         } else {
@@ -149,7 +261,7 @@ public class PlayGameActivity extends BlaugranaActivity {
                 if (eventType == XmlPullParser.START_TAG) {
                     tagname = xpp.getName();
                 } else if (eventType == XmlPullParser.TEXT) {
-                    setNextQuestion(tagname, xpp.getText());
+                    setQuestion(tagname, xpp.getText());
 
                 }
                 eventType = xpp.next();
@@ -158,47 +270,52 @@ public class PlayGameActivity extends BlaugranaActivity {
         }
     }
 
-    public void setNextQuestion(String tagname, String textin) {
 
-        if (tagname.equals("question")) {
-            Questions[questionIndex] = new Question();
-            Questions[questionIndex].Question = textin;
+    public void setQuestion(String elementTag, String textIn) {
 
-        }
-        if (tagname.equals("answer1")) {
-            Questions[questionIndex].Answer1 = textin;
+        if (elementTag.equals("question")) {
+            Questions[setQuestionIndex] = new Question();
+            Questions[setQuestionIndex].Question = textIn;
 
-        }
-        if (tagname.equals("answer2")) {
-            Questions[questionIndex].Answer2 = textin;
+        }else if (elementTag.equals("answer1")) {
+            Questions[setQuestionIndex].Answer1 = textIn;
 
-        }
-        if (tagname.equals("answer3")) {
-            Questions[questionIndex].Answer3 = textin;
+        }else if (elementTag.equals("answer2")) {
+            Questions[setQuestionIndex].Answer2 = textIn;
 
-        }
-        if (tagname.equals("answer4")) {
-            Questions[questionIndex].Answer4 = textin;
+        }else if (elementTag.equals("answer3")) {
+            Questions[setQuestionIndex].Answer3 = textIn;
 
-        }
-        if (tagname.equals("correctanswer")) {
-            Questions[questionIndex].correctAnswer = textin;
+        }else if (elementTag.equals("answer4")) {
+            Questions[setQuestionIndex].Answer4 = textIn;
 
-        }
+        }else if (elementTag.equals("correctanswer")) {
+            Questions[setQuestionIndex].CorrectAnswer = textIn;
 
-        if (tagname.equals("comment")) {
-            Questions[questionIndex].comment = textin;
-            //createRWWDialog(myQs[myQsindex].Question);
-            msg = "question-> " + Questions[questionIndex].Question + "\n" + "Answer: " + Questions[questionIndex].correctAnswer;
-            Toast t;
-            // t = Toast.makeText(networkAccessXMLFIleActivity.this,
-            //         msg, Toast.LENGTH_SHORT);
-            // t.show();
-            Log.d("RWW", "totalQs is " + totalNumQuestions + " max " + MAX_QUESTIONS);
+        }else if (elementTag.equals("comment")) {
+            Questions[setQuestionIndex].Comment = textIn;
 
+            numQuestions++;
+            setQuestionIndex++;
         }
 
     }
+
+    public void createDialog(String msg) {
+        AlertDialog.Builder adb;
+        LinearLayout linear = new LinearLayout(this);
+        linear.setOrientation(LinearLayout.VERTICAL);
+        adb = new AlertDialog.Builder(this);
+        String s = (String) getResources().getString(R.string.app_name);
+        adb.setTitle(s);
+        TextView mytext = new TextView(this);
+        mytext.append(msg);
+        linear.addView(mytext);
+        adb.setView(linear);
+        adb.setPositiveButton("Ok", null);
+        adb.show();
+    }
+
     public boolean isSdPresent() {
 
         return android.os.Environment.getExternalStorageState().equals(

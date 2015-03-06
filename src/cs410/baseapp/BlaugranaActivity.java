@@ -113,6 +113,9 @@ public class BlaugranaActivity extends BlaugranaBaseActivity {
 		case R.id.menu_item_rate_this_app:
 			showRateDialog(mContext);
 			return true;
+        case R.id.menu_item_reset_preferences:
+            DialogDeletePreferences();
+            return true;
 
 		default:
 			return super.onOptionsItemSelected(item);

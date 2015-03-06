@@ -43,7 +43,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Good Luck!"
         android:textSize="35px"
         android:textStyle="bold"
         android:typeface="serif" />
@@ -54,7 +53,7 @@
         android:background="@android:color/white" />
 
     <TextView
-        android:id="@+id/TextViewQ"
+        android:id="@+id/gameQuestions"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Hello!"

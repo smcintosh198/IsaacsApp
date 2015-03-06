@@ -15,7 +15,7 @@
                 android:id="@+id/addQuestionQuestion"
                 style="@style/field"
                 android:inputType="textMultiLine"
-                android:text="Question"
+                android:hint="Question"
                 android:maxLength="90" />
         </LinearLayout>
 

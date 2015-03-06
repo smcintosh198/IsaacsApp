@@ -10,6 +10,7 @@
     <string name="menu_item_add_a_question">- Add A Question -</string>
     <string name="menu_item_rate_this_app">- Rate this App -</string>
     <string name="menu_item_About_this_app">- About this App -</string>
+    <string name="menu_item_Delete">- Delete Preferences -</string>
     <string name="menu_item_quit">- Quit -</string>
     <string name="menu_item_Settings">Settings</string>
     <string name="AboutThisAppMsg">This App produced by Dr. Roger Webster. If you like this app please rate it 5 stars. To Rate the App press Menu->Rate This App.</string>

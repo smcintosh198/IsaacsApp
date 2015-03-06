@@ -20,6 +20,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class AddaQuestionActivity extends BlaugranaActivity {
@@ -86,8 +87,39 @@ public class AddaQuestionActivity extends BlaugranaActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                submitQuestionDialog();
+                if (question.getText().toString().trim().length() == 0){
+                    CharSequence text = "Please fill in your Question.";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(mContext, text, duration);
+                    toast.show();
+                } else if (answers[0].isEmpty()){
+                    CharSequence text = "Please fill in your Choice 1.";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(mContext, text, duration);
+                    toast.show();
+                } else if (answers[1].isEmpty()){
+                    CharSequence text = "Please fill in your Choice 2.";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(mContext, text, duration);
+                    toast.show();
+                } else if (answers[2].isEmpty()){
+                    CharSequence text = "Please fill in your Choice 3.";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(mContext, text, duration);
+                    toast.show();
+                } else if (answers[3].isEmpty()){
+                    CharSequence text = "Please fill in your Choice 4.";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(mContext, text, duration);
+                    toast.show();
+                } else if (nameText.getText().toString().trim().length() == 0){
+                    CharSequence text = "Please provide your name.";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(mContext, text, duration);
+                    toast.show();
+                } else{
+                    submitQuestionDialog();
+                }
 
             }
         });
